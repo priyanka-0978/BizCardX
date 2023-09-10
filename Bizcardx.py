@@ -221,7 +221,7 @@ if selected=='Upload & Extract':
                     with st.spinner("Please wait...."):
                         time.sleep(5)
 
-                        sql = "INSERT INTO card_info     (Card_holder_Name,Company_name,Designation,Contact_number,Email,Website_url,Pincode,Address,City,State,image) " \
+                        sql = "INSERT INTO card_info(Card_holder_Name,Company_name,Designation,Contact_number,Email,Website_url,Pincode,Address,City,State,image) " \
                                                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
                         val = (Card_holder_Name,Company_name,Designation,Phone,Email_id,Web_Url,Pincode,Address,City,State,file_bytes)
                         mycursor.execute(sql, val)
