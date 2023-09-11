@@ -37,7 +37,7 @@ selected = option_menu(None, ["Home", "Upload & Extract",  "Modify"],
 mydb=mysql.connector.connect(host='localhost',
                              user='root',
                              port=3306,
-                             password='Priya1234',
+                             password='user_password',
                              auth_plugin='mysql_native_password')
 mycursor=mydb.cursor()
 mycursor.execute("Create Database IF NOT EXISTS bizxcard_data")
