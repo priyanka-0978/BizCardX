@@ -56,7 +56,7 @@ MySQL is a relational database management system based on SQL – Structured Que
   
   * Based on the chosen name designation and other criteria, users can simply update, delete, and retrieve images from database.
 
-  **LinkedIn:**
+  **LinkedIn:** https://www.linkedin.com/posts/priyanka-pal-303367224_good-day-everyone-priyanka-here-and-im-activity-7107390169552478209-TPRI?utm_source=share&utm_medium=member_desktop
 
 
 
