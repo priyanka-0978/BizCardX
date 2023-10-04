@@ -228,7 +228,6 @@ if selected=='Upload & Extract':
                         mydb.commit()
                         
                         st.success('Done,Uploaded to database successfully')
-                        st.snow()
 
 
 #---------------------------creating modify page-------------------------------
@@ -244,7 +243,7 @@ if selected=="Modify":
         df=pd.DataFrame(mysql_data,columns=mycursor.column_names)
         df.set_index("id",drop=True,inplace=True)
         st.table(df)
- #-----------------------------------------------to show image----------------------
+ #-----------------------------------------------to show image-------------------------#
      
     #-----------Extracting image based on name and designation-----------
         
@@ -300,9 +299,10 @@ if selected=="Modify":
                 mycursor.execute(sql, (new_data, selected_name, selected_designation))
                 # Commiting  the changes to the database
                 mydb.commit()
-                st.success("New data updated successfully")
-                st.snow()
-                     
+                if mycursor.rowcount>0:
+                  st.success("New data updated successfully!!")
+                else:
+                  st.error("Please choose the correct name and designation to update")
 #---------------------------------delete data----------------------------------------------------------------
 
     if selected1=="Delete data":
@@ -320,12 +320,14 @@ if selected=="Modify":
             if st.button("Delete"):
                 sql="Delete from card_info WHERE Card_holder_Name = %s AND Designation = %s"
                 mycursor.execute(sql,(selected_name,selected_designation))
-                mydb.commit
-                st.success("Deleted Successfully!!")
-                
+                mydb.commit()
+                if mycursor.rowcount>0:
+                  st.success("Deleted Successfully!!")
+                else:
+                  st.error("Please select the correct name and designation to delete")
+
             with col2:
                 st.write(":green[The changes made to the database are shown in the table.]")
-
                 mycursor.execute('select * from card_info')
                 updated_data=mycursor.fetchall()
                 df=pd.DataFrame(updated_data,columns=mycursor.column_names)
